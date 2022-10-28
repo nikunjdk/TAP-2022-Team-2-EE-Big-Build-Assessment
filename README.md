@@ -2,6 +2,6 @@
 
 ## Team Members
 - Nikunj
-- Sahaj
+- Sahaj Adlakha
 - Adarsh Jaiswal
 - Prakhar
