@@ -4,4 +4,4 @@
 - Nikunj Das Kasat
 - Sahaj Adlakha
 - Adarsh Jaiswal
-- Prakhar
+- Prakhar Dungarwal
