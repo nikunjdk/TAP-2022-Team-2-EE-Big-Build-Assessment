@@ -6,10 +6,12 @@ Copyright (c) 2019 - present AppSeed.us
 from flask import Flask
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
+from flaskext.mysql import MySQL
 from importlib import import_module
 
 
 db = SQLAlchemy()
+new_db = MySQL()
 login_manager = LoginManager()
 
 
@@ -39,6 +41,13 @@ from apps.authentication.oauth import github_blueprint
 def create_app(config):
     app = Flask(__name__)
     app.config.from_object(config)
+
+    app.config['MYSQL_DATABASE_USER'] = 'root'
+    app.config['MYSQL_DATABASE_PASSWORD'] = 'Root@123'
+    app.config['MYSQL_DATABASE_DB'] = 'USERMGT'
+    app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+    new_db.init_app(app)
+
     register_extensions(app)
 
     app.register_blueprint(github_blueprint, url_prefix="/login")
