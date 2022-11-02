@@ -1,4 +1,35 @@
 led / optimized / DLL files
+# Created by https://www.toptal.com/developers/gitignore/api/python,linux,database
+# Edit at https://www.toptal.com/developers/gitignore?templates=python,linux,database
+
+### Database ###
+*.accdb
+*.db
+*.dbf
+*.mdb
+*.pdb
+*.sqlite3
+*.db-shm
+*.db-wal
+
+### Linux ###
+*~
+*.rpm
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+### Python ###
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
@@ -158,3 +189,8 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+<<<<<<< HEAD
+=======
+
+# End of https://www.toptal.com/developers/gitignore/api/python,linux,database
+>>>>>>> remotes/origin/RESTService
