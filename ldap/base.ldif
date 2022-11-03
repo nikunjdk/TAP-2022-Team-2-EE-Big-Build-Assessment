@@ -1,0 +1,14 @@
+dn: dc=tap22,dc=ms
+o: tap22 ms
+dc: tap22
+objectClass: top
+objectClass: dcObject
+objectclass: organization
+
+dn: ou=People,dc=tap22,dc=ms
+objectClass: organizationalUnit
+ou: People
+
+dn: ou=Group,dc=tap22,dc=ms
+objectClass: organizationalUnit
+ou: Group
