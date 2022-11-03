@@ -33,6 +33,9 @@
                     <th>
                       Department
                     </th>
+                    <th>
+                      Storage Utilisation
+                    </th>
                     <th class="text-center">
                         Delete User
                       </th>
@@ -53,6 +56,9 @@
                         <td class="text-center">
                             {{row['user_dept']}}
                         </td>
+                        <td class="text-center">
+                          ##/##
+                      </td>
                         <td>
                             <a href="{{ url_for('home_blueprint.delete_user', id=row['user_id']) }}">Delete</a>
                             

@@ -31,7 +31,7 @@ class Results(Table):
 @blueprint.route('/index')
 @login_required
 def index():
-
+    
     return render_template('home/index.html', segment='index')
 
 @blueprint.route('/users.html')

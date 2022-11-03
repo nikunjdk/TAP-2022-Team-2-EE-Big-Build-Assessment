@@ -424,7 +424,10 @@ demo = {
 
     });
 
-
+    var fr=new FileReader();
+    fr.readAsText('storage');
+    var data = fr.result;
+    console.log(data);
 
     var chart_labels = ['IT', 'ENG', 'SALES', 'HR', 'MGT', 'FIN', 'LOG'];
     var chart_data = [46,39,41,38,10,32,41,48,38];
@@ -485,8 +488,7 @@ demo = {
       data.labels = chart_labels;
       myChartData.update();
     });
-
-
+    
     var ctx = document.getElementById("CountryChart").getContext("2d");
 
     var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
