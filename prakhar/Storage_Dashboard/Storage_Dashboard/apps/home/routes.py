@@ -104,7 +104,7 @@ def add_user():
     conn.close()
 
 
-@blueprint.route('/db_users')
+@blueprint.route('/users')
 @login_required
 def users():
     print("\n\n in db users \n\n")

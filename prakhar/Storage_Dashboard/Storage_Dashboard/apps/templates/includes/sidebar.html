@@ -9,7 +9,7 @@
                     MS
                 </a>
                 <a href="javascript:void(0)" class="simple-text logo-normal">
-                    Morgan Stankey
+                    Morgan Jaiswal
                 </a>
             </div>
             <ul class="nav">
@@ -25,8 +25,8 @@
                         <p>User Profile</p>
                     </a>
                 </li>
-                <li class="{% if 'notifications' in segment %} active {% endif %}">
-                    <a href="/notifications.html">
+                <li class="{% if 'add_user' in segment %} active {% endif %}">
+                    <a href="/add_user.html">
                         <i class="tim-icons icon-single-02"></i>
                         <p>Add User</p>
                     </a>
@@ -34,15 +34,15 @@
                 <li class="{% if 'users' in segment %} active {% endif %}">
                     <a href="/users.html">
                         <i class="tim-icons icon-puzzle-10"></i>
-                        <p>List User</p>
+                        <p>List Users</p>
                     </a>
                 </li>
-                <li class="{% if 'add_user' in segment %} active {% endif %}">
+                <!-- <li class="{% if 'add_user' in segment %} active {% endif %}">
                     <a href="/add_user.html">
                         <i class="tim-icons icon-puzzle-10"></i>
                         <p>Add User - Not working</p>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="{{ url_for('authentication_blueprint.logout') }}">
                         <i class="tim-icons icon-button-power"></i>
