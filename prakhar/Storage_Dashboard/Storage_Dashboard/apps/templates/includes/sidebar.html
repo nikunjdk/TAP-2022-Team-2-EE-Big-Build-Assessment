@@ -37,12 +37,12 @@
                         <p>List Users</p>
                     </a>
                 </li>
-                <!-- <li class="{% if 'add_user' in segment %} active {% endif %}">
-                    <a href="/add_user.html">
-                        <i class="tim-icons icon-puzzle-10"></i>
-                        <p>Add User - Not working</p>
+                <li class="{% if 'bulk_upload' in segment %} active {% endif %} ">
+                    <a href="/bulk_upload.html">
+                        <i class="tim-icons icon-chart-pie-36"></i>
+                        <p>Bulk Upload</p>
                     </a>
-                </li> -->
+                </li>
                 <li>
                     <a href="{{ url_for('authentication_blueprint.logout') }}">
                         <i class="tim-icons icon-button-power"></i>
