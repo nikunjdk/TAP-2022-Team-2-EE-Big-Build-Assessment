@@ -77,6 +77,7 @@ def add_user_view():
 @blueprint.route('/add', methods=['POST'])
 @login_required
 def add_user():
+    print(" ################ in add user form function")
     conn = None
     cursor = None
     try:
@@ -87,14 +88,16 @@ def add_user():
         # validate the received values
         if _name and _login and _onboarded and _department and request.method == 'POST':
             # save edits
+            print("################before executing sql")
+
             sql = "INSERT INTO users (user_name, user_login, user_onboarded, user_dept) VALUES(%s, %s, %s, %s)"
             data = (_name, _login, _onboarded, _department)
             conn = new_db.connect()
             cursor = conn.cursor()
             cursor.execute(sql, data)
             conn.commit()
-            flash('User added successfully!')
-            return redirect('/users', segment='users')
+            print(' ################ User added successfully!')
+            return render_template('home/users.html', segment='users')
         else:
             return 'Error while adding user'
     except Exception as e:
@@ -109,24 +112,22 @@ def add_user():
 def users():
     print("\n\n in db users \n\n")
     return render_template('home/users.html', segment='users')
-    # conn = None
-    # cursor = None
-    # try:
-    #     # conn = new_db.connect()
-    #     # cursor = conn.cursor(pymysql.cursors.DictCursor)
-    #     # cursor.execute("SELECT * FROM users")
-    #     # rows = cursor.fetchall()
-    #     # print(rows)
-    #     # table = Results(rows)
-    #     # table.border = True
-    #     return render_template('users.html', segment='users')
-    # except Exception as e:
-    #     print("exceptio hai####################")
-    #     print(e)
-    # finally:
-    #     print("The END######")
-    #     cursor.close()
-    #     conn.close()
+    conn = None
+    cursor = None
+    try:
+        conn = new_db.connect()
+        cursor = conn.cursor(pymysql.cursors.DictCursor)
+        cursor.execute("SELECT * FROM users")
+        rows = cursor.fetchall()
+        print(rows)
+        table = Results(rows)
+        table.border = True
+        return render_template('home/users.html', segment='users', table=table)
+    except Exception as e:
+        print(e)
+    finally:
+        cursor.close()
+        conn.close()
 
 @blueprint.route('/delete/<int:id>')
 @login_required

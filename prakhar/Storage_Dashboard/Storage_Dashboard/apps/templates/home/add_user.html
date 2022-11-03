@@ -7,7 +7,7 @@
 
 {% block content %}
 
-<div>
+<!-- <div>
   <h2>Add User</h2>
   <form method="post" action="/add">
       <dl>
@@ -31,11 +31,77 @@
       <input type="submit" value="Submit">
       </p>
   </form>
+</div> -->
+
+
+<div class="content">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title">Add User</h5>
+        </div>
+
+        <div class="card-body">
+          <form method="post" action="/add">
+
+            <div class="row">
+
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <label class="form-label">Employee Name</label>
+                  <input type="text" name="inputName" class="form-control"
+                   placeholder="Please Enter your name"
+                   value="" autocomplete="off" required>
+                   <section class="display-error-message">
+                  </section>
+                </div>
+              </div>
+              
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <label>Login ID</label>
+                  <input class="form-control" name="inputLogin" value="" type="text"
+                  placeholder="Login" autocomplete="off" required>
+                </div>
+              </div>
+              
+            </div>
+            <div class="row">
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <label>Onboarding Date</label>
+                  <input type="date" class="form-control" name="inputOnboarded" value="" 
+                  placeholder="Onboarded on" autocomplete="off" required>
+                </div>
+              </div>
+              <div class="col-md-6 pl-md-1">
+                <div class="form-group">
+                  <label>Department</label>
+                  <input class="form-control" name="inputDepartment" value="" type="text"
+                  placeholder="Department" autocomplete="off" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-footer">
+              <!-- <button type="submit" class="btn btn-fill btn-primary">Save</button> -->
+              <input class= "btn btn-fill btn-primary" type="submit" value="Submit">
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <!-- <button type="submit" class="btn btn-fill btn-primary">Save</button> -->
+          <input class= "btn btn-fill btn-primary" type="submit" value="Submit">
+        </div>
+      </div>
+    </div>
+    
+  </div>
 </div>
 
 
 
-<!-- {{ table }} -->
 
 {% endblock content %}
 
