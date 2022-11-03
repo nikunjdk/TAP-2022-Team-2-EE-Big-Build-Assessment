@@ -6,6 +6,8 @@ from flaskext.mysql import MySQL
 from flask import flash, render_template, request, redirect
 from flask import Flask
 from apps import new_db
+import os
+import subprocess
 
 from apps.home import blueprint
 from flask import render_template, request, url_for, session
@@ -31,7 +33,53 @@ class Results(Table):
 @blueprint.route('/index')
 @login_required
 def index():
-    
+    print("home dir")
+    # os.system("pwd > test.txt")
+    results = subprocess.run(['/root/my_script.sh'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+    result_set = results.split("\n")[2:]
+    print(result_set)
+    storage_data=dict()
+    users_dir=[]
+    for item in result_set:
+        if item not in ['', "/home/\r"]:
+            storage, userName = item[:-1].split("\t")
+            if userName.split("/")[2] !='':
+                if userName.split("/")[2] not in storage_data.keys():
+                    storage_data[userName.split("/")[2]] = storage
+                # users_dir.append(userName.split("/")[2])
+    print(storage_data)
+    print(users_dir)
+
+    department_storage = dict()
+    conn = None
+    cursor = None
+    try:
+        conn = new_db.connect()
+        cursor = conn.cursor(pymysql.cursors.DictCursor)
+        cursor.execute("SELECT user_login, user_dept FROM users")
+        rows = cursor.fetchall()
+        print(rows)
+        for row in rows:
+            usr, dept = row['user_login'], row['user_dept']
+            if dept not in department_storage.keys():
+                department_storage[dept] = storage_data[usr]
+            else:
+                department_storage[dept] = department_storage[dept] + storage_data[usr]
+        for key, value in department_storage.items():
+            print(key, value)
+        
+        
+
+
+
+    except Exception as e:
+        print(e)
+    finally:
+        cursor.close()
+        conn.close()
+    print("over")
+
+
     return render_template('home/index.html', segment='index')
 
 @blueprint.route('/users.html')

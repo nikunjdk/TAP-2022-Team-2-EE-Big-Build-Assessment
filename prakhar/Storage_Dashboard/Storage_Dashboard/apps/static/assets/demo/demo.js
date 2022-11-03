@@ -424,10 +424,32 @@ demo = {
 
     });
 
-    var fr=new FileReader();
-    fr.readAsText('storage');
-    var data = fr.result;
-    console.log(data);
+    // console.log("Example to read line by line text");
+    // const f = require('fs');
+    // const readline = require('readline');
+    // var user_file = './storage.txt';
+    // var r = readline.createInterface({
+    //     input : f.createReadStream(user_file)
+    // });
+    // r.on('line', function (text) {
+    //   console.log(text);
+    // });
+
+    let file = document.getElementById("readfile");
+    file.addEventListener("change", function () {
+      var reader = new FileReader();
+        reader.onload = function (progressEvent) {
+          console.log(this.result);
+        };
+        console.log(typeof this.files[0]);
+        console.log(this.files[0]);
+        reader.readAsText(this.files[0]);
+    });
+
+    // var fr=new FileReader();
+    // fr.readAsText('storage');
+    // var data = fr.result;
+    // console.log(data);
 
     var chart_labels = ['IT', 'ENG', 'SALES', 'HR', 'MGT', 'FIN', 'LOG'];
     var chart_data = [46,39,41,38,10,32,41,48,38];

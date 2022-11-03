@@ -1,0 +1,4 @@
+20K,Information Technology
+20K,Product Engineering
+16K,Sales
+56K,Company Finance
